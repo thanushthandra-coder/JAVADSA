@@ -1,4 +1,4 @@
-1. Input a year and find whether it is a leap year or not.
+//Input a year and find whether it is a leap year or not.
 import java.util.Scanner;
 
 public class LeapYear {
@@ -8,23 +8,21 @@ public class LeapYear {
         System.out.print("Enter a year: ");
         int year = sc.nextInt();
 
-        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
-            System.out.println(year + " is a Leap Year.");
-        } else {
-            System.out.println(year + " is Not a Leap Year.");
-        }
+        String result = (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+                ? "Leap Year"
+                : "Not a Leap Year";
+
+        System.out.println(year + " is " + result);
 
         sc.close();
     }
 }
 
-output;
+output
+Enter a year: 2024
+2024 is Leap Year
 
-Enter a year: 2006
-2006 is Not a Leap Year.
-
-
-2. Take two numbers and print the sum of both.
+//Take two numbers and print the sum of both.
 import java.util.Scanner;
 
 public class SumOfTwoNumbers {
@@ -45,14 +43,13 @@ public class SumOfTwoNumbers {
     }
 }
 
-output;
+output
 
-Enter first number: 11
-Enter second number: 22
-Sum = 33
+Enter first number: 1
+Enter second number: 7
+Sum = 8
 
-3. Take a number as input and print the multiplication table for it.
-
+//Take a number as input and print the multiplication table for it.
 import java.util.Scanner;
 
 public class MultiplicationTable {
@@ -62,8 +59,6 @@ public class MultiplicationTable {
         System.out.print("Enter a number: ");
         int num = sc.nextInt();
 
-        System.out.println("Multiplication Table of " + num + ":");
-
         for (int i = 1; i <= 10; i++) {
             System.out.println(num + " x " + i + " = " + (num * i));
         }
@@ -71,27 +66,23 @@ public class MultiplicationTable {
         sc.close();
     }
 }
+output
+Enter a number: 2
+2 x 1 = 2
+2 x 2 = 4
+2 x 3 = 6
+2 x 4 = 8
+2 x 5 = 10
+2 x 6 = 12
+2 x 7 = 14
+2 x 8 = 16
+2 x 9 = 18
+2 x 10 = 20
 
-output;
-
-Enter a number: 6
-Multiplication Table of 6:
-6 x 1 = 6
-6 x 2 = 12
-6 x 3 = 18
-6 x 4 = 24
-6 x 5 = 30
-6 x 6 = 36
-6 x 7 = 42
-6 x 8 = 48
-6 x 9 = 54
-6 x 10 = 60
-
-4. Take 2 numbers as inputs and find their HCF and LCM.
-   
+//Take 2 numbers as inputs and find their HCF and LCM.
 import java.util.Scanner;
 
-public class HCFAndLCM {
+public class HCFLCM {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -104,7 +95,7 @@ public class HCFAndLCM {
         int a = num1;
         int b = num2;
 
-        // Find HCF (GCD) using Euclidean Algorithm
+        // Finding HCF using Euclidean algorithm
         while (b != 0) {
             int temp = b;
             b = a % b;
@@ -112,6 +103,8 @@ public class HCFAndLCM {
         }
 
         int hcf = a;
+
+        // Formula: LCM = (num1 * num2) / HCF
         int lcm = (num1 * num2) / hcf;
 
         System.out.println("HCF = " + hcf);
@@ -121,44 +114,41 @@ public class HCFAndLCM {
     }
 }
 
-output;
+output
+Enter first number: 3
+Enter second number: 9
+HCF = 3
+LCM = 9
 
-Enter first number: 20
-Enter second number: 15
-HCF = 5
-LCM = 60
-
-5. Keep taking numbers as inputs till the user enters ‘x’, after that print sum of all.
-
+//Keep taking numbers as inputs till the user enters ‘x’, after that print sum of all.
 import java.util.Scanner;
 
-public class SumUntilX {
+public class SumNumbers {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int sum = 0;
 
+        System.out.println("Enter numbers (Enter 'x' to stop):");
+
         while (true) {
-            System.out.print("Enter a number (or 'x' to stop): ");
             String input = sc.next();
 
-            if (input.equalsIgnoreCase("x")) {
+            try {
+                sum = sum + Integer.parseInt(input);
+            } catch (Exception e) {
                 break;
             }
-
-            sum += Integer.parseInt(input);
         }
 
-        System.out.println("Sum = " + sum);
+        System.out.println("Sum of all numbers = " + sum);
 
         sc.close();
     }
 }
 
-output;
-
-Enter a number (or 'x' to stop): 12
-Enter a number (or 'x' to stop): 17
-Enter a number (or 'x' to stop): 13
-Enter a number (or 'x' to stop): x
-Sum = 42
+output
+Enter numbers (Enter 'x' to stop):
+9
+x
+Sum of all numbers = 9
