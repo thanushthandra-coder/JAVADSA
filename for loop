@@ -1,0 +1,203 @@
+1. Print all elements of an array.
+
+public class PrintArray {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+}
+
+output
+
+10
+20
+30
+40
+50
+
+2. 
+
+public class SumArray {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        int sum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+
+        System.out.println("Sum = " + sum);
+    }
+}
+
+output:
+
+Sum = 150
+
+
+3.
+
+public class AverageArray {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        int sum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+
+        double average = (double) sum / arr.length;
+        System.out.println("Average = " + average);
+    }
+}
+
+output:
+
+Average = 30.0
+
+4.Find the largest element.
+
+import java.util.Arrays;
+
+public class LargestElement {
+    public static void main(String[] args) {
+        int[] arr = {10, 25, 7, 40, 18};
+
+        int largest = Arrays.stream(arr).max().getAsInt();
+
+        System.out.println("Largest = " + largest);
+    }
+}
+
+output:
+
+Largest = 40
+
+5.Find the smallest element.
+
+import java.util.Arrays;
+
+public class SmallestElement {
+    public static void main(String[] args) {
+        int[] arr = {10, 25, 7, 40, 18};
+
+        int smallest = Arrays.stream(arr).min().getAsInt();
+
+        System.out.println("Smallest = " + smallest);
+    }
+}
+
+output:
+
+Smallest = 7
+
+6. Count even and odd numbers.
+
+import java.util.Arrays;
+
+public class EvenOddCount {
+    public static void main(String[] args) {
+        int[] arr = {10, 25, 7, 40, 18};
+
+        long even = Arrays.stream(arr)
+                          .filter(n -> n % 2 == 0)
+                          .count();
+
+        long odd = arr.length - even;
+
+        System.out.println("Even Count = " + even);
+        System.out.println("Odd Count = " + odd);
+    }
+}
+
+output:
+
+Even Count = 3
+Odd Count = 2
+
+
+7. Reverse an array.
+
+public class ReverseArray {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+output:
+
+50 40 30 20 10 
+
+
+8.Search for a given element.
+
+import java.util.Arrays;
+
+public class SearchElement {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        int key = 30;
+
+        boolean found = Arrays.stream(arr).anyMatch(n -> n == key);
+
+        System.out.println(found);
+    }
+}
+
+output:
+
+true
+
+9. Count the occurrence of a specific number.
+
+import java.util.Arrays;
+
+public class CountOccurrence {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 20, 40, 20, 50};
+        int key = 20;
+
+        long count = Arrays.stream(arr)
+                           .filter(n -> n == key)
+                           .count();
+
+        System.out.println("Occurrences = " + count);
+    }
+}
+
+output:
+
+Occurrences = 3
+
+10. Find the second largest element.
+
+import java.util.Arrays;
+
+public class SecondLargest {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+
+        int secondLargest = Arrays.stream(arr)
+                                  .distinct()
+                                  .boxed()
+                                  .sorted((a, b) -> b - a)
+                                  .skip(1)
+                                  .findFirst()
+                                  .get();
+
+        System.out.println("Second Largest = " + secondLargest);
+    }
+}
+
+output:
+
+Second Largest = 40
+
+11.
