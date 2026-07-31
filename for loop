@@ -430,3 +430,126 @@ output:
 
 Intersection:
 3 4 5 
+
+21. Find the union of two arrays.
+
+public class UnionArray {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3};
+        int[] b = {3, 4, 5};
+
+        int[] union = new int[a.length + b.length];
+
+        System.arraycopy(a, 0, union, 0, a.length);
+        System.arraycopy(b, 0, union, a.length, b.length);
+
+        for (int i = 0; i < union.length; i++) {
+            System.out.print(union[i] + " ");
+        }
+    }
+}
+
+output:
+
+1 2 3 3 4 5
+
+22. Find all pairs whose sum equals a target value.
+
+public class PairSum {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int target = 5;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == target) {
+                    System.out.println(arr[i] + " " + arr[j]);
+                }
+            }
+        }
+    }
+}
+
+output:
+
+1 4
+2 3
+
+23.Find the maximum subarray sum (Kadane's Algorithm).
+
+public class KadaneAlgorithm {
+    public static void main(String[] args) {
+        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+
+        int currentSum = arr[0];
+        int maxSum = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            currentSum = Math.max(arr[i], currentSum + arr[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+
+        System.out.println("Maximum Subarray Sum = " + maxSum);
+    }
+}
+
+output:
+
+Maximum Subarray Sum = 6
+
+24.Find leaders in an array.
+
+public class LeadersInArray {
+    public static void main(String[] args) {
+        int[] arr = {16, 17, 4, 3, 5, 2};
+
+        int maxFromRight = arr[arr.length - 1];
+        System.out.print(maxFromRight + " ");
+
+        for (int i = arr.length - 2; i >= 0; i--) {
+            if (arr[i] >= maxFromRight) {
+                maxFromRight = arr[i];
+                System.out.print(maxFromRight + " ");
+            }
+        }
+    }
+}
+
+
+output:
+
+2 5 17 
+
+25.Find the equilibrium index.
+
+public class EquilibriumIndex {
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 5, 2, 2};
+
+        int totalSum = 0;
+        int leftSum = 0;
+
+        // Calculate total sum
+        for (int i = 0; i < arr.length; i++) {
+            totalSum += arr[i];
+        }
+
+        // Find equilibrium index
+        for (int i = 0; i < arr.length; i++) {
+            totalSum -= arr[i];
+
+            if (leftSum == totalSum) {
+                System.out.println("Equilibrium Index: " + i);
+                return;
+            }
+
+            leftSum += arr[i];
+        }
+
+        System.out.println("No Equilibrium Index");
+    }
+}
+
+output:
+
+Equilibrium Index: 2
