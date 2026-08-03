@@ -256,4 +256,368 @@ output:
 
 JAVA
 
-11.
+11. Ends With
+
+program:
+import java.util.Scanner;
+
+public class EndsWithExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        System.out.print("Enter the suffix to check: ");
+        String suffix = sc.nextLine();
+
+        boolean result = str.endsWith(suffix);
+
+        if (result) {
+            System.out.println("The string ends with \"" + suffix + "\"");
+        } else {
+            System.out.println("The string does not end with \"" + suffix + "\"");
+        }
+
+        sc.close();
+    }
+}
+
+output:
+
+Enter a string: Thanush kumar
+Enter the suffix to check: Thanush
+The string does not end with "Thanush"
+
+12. Equals
+
+program:
+import java.util.Scanner;
+
+public class EqualsExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first string: ");
+        String str1 = sc.nextLine();
+
+        System.out.print("Enter second string: ");
+        String str2 = sc.nextLine();
+
+        if (str1.equals(str2)) {
+            System.out.println("Both strings are equal.");
+        } else {
+            System.out.println("Both strings are not equal.");
+        }
+
+        sc.close();
+    }
+}
+
+output:
+
+Enter first string: Java
+Enter second string: java
+Both strings are not equal.
+
+13. Equals Ignore Case
+
+program:
+import java.util.Scanner;
+
+public class EqualsIgnoreCaseExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first string: ");
+        String str1 = sc.nextLine();
+
+        System.out.print("Enter second string: ");
+        String str2 = sc.nextLine();
+
+        if (str1.equalsIgnoreCase(str2)) {
+            System.out.println("Both strings are equal (ignoring case).");
+        } else {
+            System.out.println("Both strings are not equal.");
+        }
+
+        sc.close();
+    }
+}
+
+output:
+
+Enter first string: Java
+Enter second string: java
+Both strings are equal (ignoring case).
+
+14. Formate
+
+program:
+public class FormatExample {
+    public static void main(String[] args) {
+
+        String name = "Thanush";
+        int age = 18;
+        double marks = 92.75;
+
+        String result = String.format(
+                "Name: %s\nAge: %d\nMarks: %.2f",
+                name, age, marks);
+
+        System.out.println(result);
+    }
+}
+
+output:
+
+Name: Thanush
+Age: 18
+Marks: 92.75
+
+
+15. Get Bytes
+
+program:
+public class GetBytesExample {
+    public static void main(String[] args) {
+
+        String str = "Hello";
+
+        byte[] bytes = str.getBytes();
+
+        System.out.println("Original String: " + str);
+        System.out.println("Byte Values:");
+
+        for (int i = 0; i < bytes.length; i++) {
+            System.out.print(bytes[i] + " ");
+        }
+    }
+}
+
+output:
+
+Original String: Hello
+Byte Values:
+72 101 108 108 111 
+
+16.get chars
+
+program:
+public class GetCharsExample {
+    public static void main(String[] args) {
+
+        String str = "Hello Java";
+
+        char[] ch = new char[5];
+
+        // Copy characters from index 0 to 4 into the character array
+        str.getChars(0, 5, ch, 0);
+
+        System.out.println("Original String: " + str);
+        System.out.print("Copied Characters: ");
+
+        for (int i = 0; i < ch.length; i++) {
+            System.out.print(ch[i] + " ");
+        }
+    }
+}
+
+output:
+
+Original String: Hello Java
+Copied Characters: H e l l o 
+
+17. Hash code
+
+program:
+public class HashCodeExample {
+    public static void main(String[] args) {
+
+        String str1 = "Hello";
+        String str2 = "Java";
+
+        int hash1 = str1.hashCode();
+        int hash2 = str2.hashCode();
+
+        System.out.println("String 1: " + str1);
+        System.out.println("Hash Code: " + hash1);
+
+        System.out.println("String 2: " + str2);
+        System.out.println("Hash Code: " + hash2);
+    }
+}
+
+out put:
+
+String 1: Hello
+Hash Code: 69609650
+String 2: Java
+Hash Code: 2301506
+
+
+18. Index Of
+
+program:
+public class IndexOfExample {
+    public static void main(String[] args) {
+
+        String str = "Hello Java";
+
+        int index1 = str.indexOf("Java");
+        int index2 = str.indexOf('o');
+        int index3 = str.indexOf('a');
+
+        System.out.println("Original String: " + str);
+        System.out.println("Index of \"Java\": " + index1);
+        System.out.println("Index of 'o': " + index2);
+        System.out.println("Index of 'a': " + index3);
+    }
+}
+
+output:
+
+Original String: Hello Java
+Index of "Java": 6
+Index of 'o': 4
+Index of 'a': 7
+
+19. Is Empty
+
+program:
+public class IsEmptyExample {
+    public static void main(String[] args) {
+
+        String str1 = "";
+        String str2 = "Hello";
+
+        System.out.println("String 1: \"" + str1 + "\"");
+        System.out.println("Is String 1 empty? " + str1.isEmpty());
+
+        System.out.println("String 2: " + str2);
+        System.out.println("Is String 2 empty? " + str2.isEmpty());
+    }
+}
+
+output:
+
+String 1: ""
+Is String 1 empty? true
+String 2: Hello
+Is String 2 empty? false
+
+20. Join
+
+program:
+import java.util.ArrayList;
+
+public class JoinExample2 {
+    public static void main(String[] args) {
+
+        ArrayList<String> fruits = new ArrayList<>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Orange");
+
+        String result = String.join(" - ", fruits);
+
+        System.out.println(result);
+    }
+}
+
+output:
+
+Apple - Banana - Orange
+
+21. Last Index Of
+
+program:
+public class LastIndexOfExample {
+    public static void main(String[] args) {
+
+        String str = "Java Programming Java";
+
+        int index1 = str.lastIndexOf("Java");
+        int index2 = str.lastIndexOf('a');
+        int index3 = str.lastIndexOf("Programming");
+
+        System.out.println("Original String: " + str);
+        System.out.println("Last index of \"Java\": " + index1);
+        System.out.println("Last index of 'a': " + index2);
+        System.out.println("Last index of \"Programming\": " + index3);
+    }
+}
+
+output:
+
+Original String: Java Programming Java
+Last index of "Java": 17
+Last index of 'a': 20
+Last index of "Programming": 5
+
+22. Length
+
+program:
+public class LengthExample {
+    public static void main(String[] args) {
+
+        String str = "Hello Java";
+
+        int len = str.length();
+
+        System.out.println("Original String: " + str);
+        System.out.println("Length of the string: " + len);
+    }
+}
+
+output:
+
+Original String: Hello Java
+Length of the string: 10
+
+23. Matches
+
+program:
+public class MatchesExample {
+    public static void main(String[] args) {
+
+        String str = "Java123";
+
+        boolean result1 = str.matches("[A-Za-z0-9]+");
+        boolean result2 = str.matches("[0-9]+");
+
+        System.out.println("Original String: " + str);
+        System.out.println("Matches [A-B2-c4]+ : " + result1);
+        System.out.println("Matches [2-3]+ : " + result2);
+    }
+}
+
+output:
+
+Original String: Java123
+Matches [A-B2-c4]+ : true
+Matches [2-3]+ : false
+
+24. Replays
+
+program:
+public class Main {
+    public static void main(String[] args) {
+        String str = "Hello World";
+
+        String result = str.replace("World", "Java");
+
+        System.out.println("Original String: " + str);
+        System.out.println("After Replace: " + result);
+    }
+}
+
+output:
+
+Original String: Hello World
+After Replace: Hello Java
+
+25. Replays All
+
+program:
+
