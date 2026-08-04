@@ -620,4 +620,212 @@ After Replace: Hello Java
 25. Replays All
 
 program:
+public class ReplaceAllExample {
+    public static void main(String[] args) {
+
+        String text = "Ravi123 Kumar456";
+
+        String result = text.replaceAll("[0-9]", "");
+
+        System.out.println("Original String: " + text);
+        System.out.println("After ReplaceAll: " + result);
+    }
+}
+output:
+Original String: Ravi123 Kumar456
+After ReplaceAll: Ravi Kumar
+
+26.//replace First
+public class ReplaceFirstExample {
+    public static void main(String[] args) {
+
+        String text = "Apple Mango Apple";
+
+        String result = text.replaceFirst("Apple", "Orange");
+
+        System.out.println("Original String: " + text);
+        System.out.println("After ReplaceFirst: " + result);
+    }
+}
+output:
+Original String: Apple Mango Apple
+After ReplaceFirst: Orange Mango Apple
+
+27.//split
+public class SplitExample {
+    public static void main(String[] args) {
+
+        String names = "Arjun,Rohan,Meena";
+
+        String[] result = names.split(",");
+
+        for (String name : result) {
+            System.out.println(name);
+        }
+    }
+}
+output:
+Arjun
+Rohan
+Meena
+
+28.//starts with
+public class StartsWithExample {
+    public static void main(String[] args) {
+
+        String message = "Welcome Rahul";
+
+        System.out.println(message.startsWith("Welcome"));
+        System.out.println(message.startsWith("Rahul"));
+        System.out.println(message.startsWith("Hello"));
+    }
+}
+output:
+true
+false
+false
+
+29.//sub sequence
+public class SubSequenceExample {
+    public static void main(String[] args) {
+
+        String text = "Programming";
+
+        CharSequence result = text.subSequence(3, 8);
+
+        System.out.println("Original String: " + text);
+        System.out.println("Sub Sequence: " + result);
+    }
+}
+output:
+Original String: Programming
+Sub Sequence: gramm
+
+30..//substream
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamExample {
+    public static void main(String[] args) {
+
+        List<String> names = Arrays.asList("Arjun", "Kiran", "Meena", "Ravi", "Sita");
+
+        names.stream()
+             .skip(1)
+             .limit(3)
+             .forEach(System.out::println);
+    }
+}
+output:
+Kiran
+Meena
+Ravi
+
+31.//to char array
+public class ToCharArrayExample {
+    public static void main(String[] args) {
+
+        String name = "Arjun";
+
+        char[] characters = name.toCharArray();
+
+        for (char ch : characters) {
+            System.out.println(ch);
+        }
+    }
+}
+output:
+A
+r
+j
+u
+n
+
+32.//to lower case
+public class ToLowerCaseExample {
+    public static void main(String[] args) {
+
+        String name = "ARJUN KUMAR";
+
+        String result = name.toLowerCase();
+
+        System.out.println("Original String: " + name);
+        System.out.println("Lowercase String: " + result);
+    }
+}
+output:
+Original String: ARJUN KUMAR
+Lowercase String: arjun kumar
+
+33.//to upper case
+public class ToUpperCaseExample {
+    public static void main(String[] args) {
+
+        String name = "william turnner";
+
+        String result = name.toUpperCase();
+
+        System.out.println("Original String: " + name);
+        System.out.println("Uppercase String: " + result);
+    }
+}
+output:
+Original String: william turnner
+Uppercase String: WILLIAM TURNNER
+
+34.//to string
+public class ToStringExample {
+    public static void main(String[] args) {
+
+        Integer number = 123;
+
+        String result = number.toString();
+
+        System.out.println("String value: " + result);
+    }
+}
+output:
+String value: 123
+
+35.//trim
+public class TrimExample {
+    public static void main(String[] args) {
+
+        String name = "   Arjun Kumar   ";
+
+        String result = name.trim();
+
+        System.out.println("Original String: " + name);
+        System.out.println("After Trim: " + result);
+    }
+}
+output:
+Original String:    Arjun Kumar   
+After Trim: Arjun Kumar
+
+36.//value off
+public class ValueOfExample {
+    public static void main(String[] args) {
+
+        int number = 100;
+        double price = 99.50;
+        char letter = 'A';
+        boolean status = true;
+
+        String str1 = String.valueOf(number);
+        String str2 = String.valueOf(price);
+        String str3 = String.valueOf(letter);
+        String str4 = String.valueOf(status);
+
+        System.out.println(str1);
+        System.out.println(str2);
+        System.out.println(str3);
+        System.out.println(str4);
+    }
+}
+output:
+100
+99.5
+A
+true
 
