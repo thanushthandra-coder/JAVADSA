@@ -1,0 +1,260 @@
+1)Reverse a String
+
+program:
+import java.util.Scanner;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        String rev = "";
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev = rev + str.charAt(i);
+        }
+
+        System.out.println("Reversed String = " + rev);
+    }
+}
+
+out put:
+Enter a string: Apple
+Reversed String = elppA
+
+2) Palindrome Check
+
+program:
+import java.util.Scanner;
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        String rev = "";
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev += str.charAt(i);
+        }
+
+        if (str.equalsIgnoreCase(rev)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not Palindrome");
+        }
+    }
+}
+
+output:
+Enter a string: thanush
+Not Palindrome
+
+3) Vowel and Consonant Counter
+
+program:
+import java.util.Scanner;
+
+public class VowelConsonant {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine().toLowerCase();
+
+        int vowels = 0;
+        int consonants = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            if (ch >= 'a' && ch <= 'z') {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                    vowels++;
+                else
+                    consonants++;
+            }
+        }
+
+        System.out.println("Vowels = " + vowels);
+        System.out.println("Consonants = " + consonants);
+    }
+}
+
+out put:
+Enter a string: Apple
+Vowels = 2
+Consonants = 3
+
+4) Remove Whitespace
+
+program:
+public class RemoveWhitespace {
+    public static void main(String[] args) {
+
+        String str = "  Hello   World  ";
+
+        String result = str.replaceAll("\\s+", "");
+
+        System.out.println("Result = " + result);
+    }
+}
+
+output:
+Result = HelloWorld
+
+5) Digit-Only Check
+
+program:
+import java.util.Scanner;
+
+public class DigitOnlyCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        boolean digitOnly = true;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                digitOnly = false;
+                break;
+            }
+        }
+
+        if (digitOnly)
+            System.out.println("Contains only digits");
+        else
+            System.out.println("Contains other characters");
+    }
+}
+
+output:
+Enter a string: 132@
+Contains other characters
+
+6) Toggle Case
+
+program:
+public class ToggleCase {
+    public static void main(String[] args) {
+
+        String str = "Hello World";
+
+        String result = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            if (Character.isUpperCase(ch))
+                result += Character.toLowerCase(ch);
+            else if (Character.isLowerCase(ch))
+                result += Character.toUpperCase(ch);
+            else
+                result += ch;
+        }
+
+        System.out.println("Result = " + result);
+    }
+}
+
+output:
+
+Result = hELLO wORLD
+
+7) String Length Without 
+
+program:
+public class StringLengthWithoutLength {
+    public static void main(String[] args) {
+
+        String str = "Hello World";
+
+        int count = 0;
+
+        try {
+            while (true) {
+                str.charAt(count);
+                count++;
+            }
+        } catch (Exception e) {
+        }
+
+        System.out.println("Length = " + count);
+    }
+}
+
+output:
+Length = 11
+
+8) Anagram Check
+
+program:
+import java.util.Arrays;
+
+public class AnagramCheck {
+    public static void main(String[] args) {
+
+        String str1 = "listen";
+        String str2 = "silent";
+
+        char[] a = str1.toCharArray();
+        char[] b = str2.toCharArray();
+
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        boolean result = Arrays.equals(a, b);
+
+        System.out.println("Is Anagram = " + result);
+    }
+}
+
+output:
+Is Anagram = true
+
+9) Reverse Words
+
+program:
+public class ReverseWords {
+    public static void main(String[] args) {
+
+        String str = "Java is fun";
+
+        String[] words = str.split(" ");
+
+        for (int i = words.length - 1; i >= 0; i--) {
+            System.out.print(words[i] + " ");
+        }
+    }
+}
+
+output:
+fun is Java 
+
+10) Count Words
+
+program:
+public class CountWords {
+    public static void main(String[] args) {
+
+        String str = "  Java   is   fun  ";
+
+        str = str.trim();
+
+        if (str.isEmpty()) {
+            System.out.println("Word Count = 0");
+        } else {
+            String[] words = str.split("\\s+");
+            System.out.println("Word Count = " + words.length);
+        }
+    }
+}
+
+out put:
+Word Count = 3
