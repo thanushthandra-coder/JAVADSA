@@ -457,3 +457,55 @@ thequickbrownfoxjumpsoverthelazydog
 output:
 Is Pangram: true
 
+11) Count Items Matching a Rule
+
+program:
+import java.util.*;
+
+public class CountItemsMatchingRule {
+
+    public static int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+        int index = 0;
+
+        if (ruleKey.equals("type")) {
+            index = 0;
+        } else if (ruleKey.equals("color")) {
+            index = 1;
+        } else if (ruleKey.equals("name")) {
+            index = 2;
+        }
+
+        int count = 0;
+
+        for (List<String> item : items) {
+            if (item.get(index).equals(ruleValue)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        List<List<String>> items = new ArrayList<>();
+
+        items.add(Arrays.asList("phone", "blue", "pixel"));
+        items.add(Arrays.asList("computer", "silver", "lenovo"));
+        items.add(Arrays.asList("phone", "gold", "iphone"));
+
+        String ruleKey = "color";
+        String ruleValue = "silver";
+
+        int result = countMatches(items, ruleKey, ruleValue);
+
+        System.out.println("Matching items: " + result);
+    }
+}
+
+output:
+
+Matching items: 1
+
+12) 
+Matching items: 1
+
