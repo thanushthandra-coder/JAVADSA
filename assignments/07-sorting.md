@@ -290,3 +290,35 @@ public class Main {
 output:
 
 4
+
+10) Maximum Product of Three Numbers
+
+program:
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int[] nums = {1, 2, 3, 4};
+
+        Arrays.sort(nums);
+
+        int n = nums.length;
+
+        // Maximum product can be:
+        // 1. Three largest numbers
+        // 2. Two smallest numbers and the largest number
+        int product1 = nums[n - 1] * nums[n - 2] * nums[n - 3];
+        int product2 = nums[0] * nums[1] * nums[n - 1];
+
+        int result = Math.max(product1, product2);
+
+        System.out.println("Maximum Product: " + result);
+    }
+}
+
+output:
+
+Maximum Product: 24
+
+11) 
