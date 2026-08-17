@@ -1,0 +1,247 @@
+1. Traversal
+
+program:
+
+class Main {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+
+        Node temp = head;
+
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+    }
+}
+
+output:
+
+10 20 30 
+
+2. Insertion
+
+program:
+
+class Main {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    static Node insertAtEnd(Node head, int data) {
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            return newNode;
+        }
+
+        Node temp = head;
+
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        temp.next = newNode;
+
+        return head;
+    }
+
+    static void display(Node head) {
+        while (head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+
+        head = insertAtEnd(head, 40);
+
+        display(head);
+    }
+}
+
+output:
+
+10 20 30 40
+
+3. Deletion
+
+program:
+
+class Main {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    static Node delete(Node head, int value) {
+
+        if (head == null) {
+            return null;
+        }
+
+        if (head.data == value) {
+            return head.next;
+        }
+
+        Node temp = head;
+
+        while (temp.next != null) {
+            if (temp.next.data == value) {
+                temp.next = temp.next.next;
+                break;
+            }
+            temp = temp.next;
+        }
+
+        return head;
+    }
+
+    static void display(Node head) {
+        while (head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+        head.next.next.next = new Node(40);
+
+        head = delete(head, 30);
+
+        display(head);
+    }
+}
+
+output:
+
+10 20 40
+
+4. Searching
+
+program:
+
+class Main {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    static boolean search(Node head, int value) {
+        Node temp = head;
+
+        while (temp != null) {
+            if (temp.data == value) {
+                return true;
+            }
+
+            temp = temp.next;
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+
+        int value = 20;
+
+        if (search(head, value)) {
+            System.out.println("Element found");
+        } else {
+            System.out.println("Element not found");
+        }
+    }
+}
+
+output:
+
+Element found
+
+5. Updating
+
+program:
+
+class Main {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    static void update(Node head, int oldValue, int newValue) {
+        Node temp = head;
+
+        while (temp != null) {
+            if (temp.data == oldValue) {
+                temp.data = newValue;
+                return;
+            }
+
+            temp = temp.next;
+        }
+    }
+
+    static void display(Node head) {
+        Node temp = head;
+
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+        head.next.next.next = new Node(40);
+
+        // Update 30 to 35
+        update(head, 30, 35);
+
+        display(head);
+    }
+}
+
+output:
+
+10 20 35 40
